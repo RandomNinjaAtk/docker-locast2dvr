@@ -1,0 +1,30 @@
+FROM lsiobase/ubuntu:focal
+LABEL maintainer="RandomNinjaAtk"
+
+ENV TITLE="locast2dvr"
+ENV VERSION="1.0.1"
+
+RUN \
+	echo "************ install & upgrade packages ************" && \
+	apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get install -y --no-install-recommends \
+		python3 \
+		python3-pip \
+		ffmpeg && \
+	rm -rf \
+		/tmp/* \
+		/var/lib/apt/lists/* \
+		/var/tmp/* && \
+	echo "************ install python packages ************" && \
+	python3 -m pip install --no-cache-dir -U \
+		locast2dvr
+
+# copy local files
+COPY root/ /
+
+# set work directory
+WORKDIR /config
+
+# ports and volumes
+VOLUME /config
