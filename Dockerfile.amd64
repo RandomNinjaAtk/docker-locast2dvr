@@ -1,6 +1,5 @@
 FROM lsiobase/ubuntu:focal
 LABEL maintainer="RandomNinjaAtk"
-
 ENV TITLE="locast2dvr"
 ENV VERSION="0.0.01"
 
