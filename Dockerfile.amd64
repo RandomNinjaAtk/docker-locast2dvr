@@ -24,3 +24,5 @@ WORKDIR /config
 
 # ports and volumes
 VOLUME /config
+
+ENTRYPOINT ["bash", "/config/run.bash"]
