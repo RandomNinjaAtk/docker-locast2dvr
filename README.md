@@ -34,6 +34,39 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e L2DPASS="password"` | Locast Password |
 | `-e L2DZIP=#####,#####` | Locast Zipcodes, zipcode in format: #####,#####,##### |
 
+### docker
+
+```
+docker create \
+  --name=locast2dvr \
+  --network host \
+  -e L2DHOSTIP=###.###.###.### \
+  -e L2DUSER="username" \
+  -e L2DPASS="password" \
+  -e L2DZIP=#####,##### \
+  randomninjaatk/locast2dvr 
+```
+
+
+### docker-compose
+
+Compatible with docker-compose v2 schemas.
+
+```
+version: "2.1"
+services:
+  locast2dvr:
+    image: randomninjaatk/locast2dvr 
+    container_name: locast2dvr
+    network: host
+    environment:
+      - L2DHOSTIP=###.###.###.###
+      - L2DUSER="username" \
+      - L2DPASS="password" \
+      - L2DZIP=#####,##### \
+    restart: unless-stopped
+```
+
 <br />
 <br />
 <br />
