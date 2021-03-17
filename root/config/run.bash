@@ -6,4 +6,4 @@ echo "username=\"${L2DUSER}\"" >> /config/config
 echo "password=\"${L2DPASS}\"" >> /config/config
 echo "override_zipcodes=\"${L2DZIP}\"" >> /config/config
 
-locast2dvr --config /config/config --bind-address $L2DHOSTIP -ds -m
+locast2dvr --config /config/config --bind-address $L2DHOSTIP -ds -m -d 5 -r
