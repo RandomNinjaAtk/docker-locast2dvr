@@ -58,7 +58,7 @@ services:
   locast2dvr:
     image: randomninjaatk/locast2dvr 
     container_name: locast2dvr
-    network: host
+    network_mode: host
     environment:
       - L2DHOSTIP=###.###.###.###
       - L2DUSER="username" \
