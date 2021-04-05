@@ -25,7 +25,7 @@ The architectures supported by this image are:
 
 ## Parameters
 
-Container images are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container.
+Container images are configured using the following parameters passed at runtime.
 
 | Parameter | Function |
 | ---- | --- |
@@ -35,14 +35,15 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e L2DZIP=#####,#####` | Locast Zipcodes, zipcode in format: #####,#####,##### |
 
 ### docker
+Don't use quotation marks in the environmental variables.
 
 ```
 docker create \
   --name=locast2dvr \
   --network host \
   -e L2DHOSTIP=###.###.###.### \
-  -e L2DUSER="username" \
-  -e L2DPASS="password" \
+  -e L2DUSER=username \
+  -e L2DPASS=password \
   -e L2DZIP=#####,##### \
   randomninjaatk/locast2dvr 
 ```
@@ -50,7 +51,7 @@ docker create \
 
 ### docker-compose
 
-Compatible with docker-compose v2 schemas.
+Compatible with docker-compose v2 schemas. Don't use quotation marks in the environmental variables.
 
 ```
 version: "2.1"
@@ -61,9 +62,9 @@ services:
     network_mode: host
     environment:
       - L2DHOSTIP=###.###.###.###
-      - L2DUSER="username" \
-      - L2DPASS="password" \
-      - L2DZIP=#####,##### \
+      - L2DUSER=username
+      - L2DPASS=password
+      - L2DZIP=#####,#####
     restart: unless-stopped
 ```
 
